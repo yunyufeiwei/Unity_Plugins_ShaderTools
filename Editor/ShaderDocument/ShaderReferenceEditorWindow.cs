@@ -631,7 +631,7 @@ namespace yuxuetian
                     break;
                 case 19:
                     _about.DrawTitleURL();
-                    _about.DrawContentUnityTexture();
+                    //_about.DrawContentUnityTexture();
                     break;
                 
             }

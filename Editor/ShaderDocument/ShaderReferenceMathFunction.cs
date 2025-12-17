@@ -45,8 +45,21 @@ namespace yuxuetian
         
         public void DrawContent()
         {
+            float imageWidth = texUnity.width;
+            float imageHeight = texUnity.height;
+
+            float availableWidth = EditorGUIUtility.currentViewWidth - 20;
             
-            GUI.DrawTexture(new Rect(0,50.0f,1700.0f,913.0f),texUnity,ScaleMode.StretchToFill);
+            float scale = availableWidth / imageWidth;
+            float scaledWidth = imageWidth * scale;
+            float scaledHeight = imageHeight * scale;
+            
+            //GUILayout.Label(texUnity,GUILayout.Width(scaledWidth),GUILayout.Height(scaledHeight));
+
+            Rect imageRect = GUILayoutUtility.GetRect(scaledWidth, scaledHeight);
+            GUI.DrawTexture(imageRect,texUnity,ScaleMode.ScaleToFit);
+            GUILayout.Space(0);
+            // GUI.DrawTexture(new Rect(0,50.0f,1700.0f,913.0f),texUnity,ScaleMode.StretchToFill);
             
         }
 
