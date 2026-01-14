@@ -1,7 +1,7 @@
 {
 	"name":"com.yuxuetian.shaderreference",
 	"version":"1.1.0",
-	"displayName":"ShaderReference",
+	"displayName":"Unity_Plugins_ShaderTools",
 	"description":"编写Shader时的参考手册以及一些Shader模版",
 	"author":
 	{
