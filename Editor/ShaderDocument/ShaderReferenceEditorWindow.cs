@@ -47,6 +47,7 @@ namespace yuxuetian
         private bool _isFoldTransformationBaseTransformationMatrix = true;
         //其它
         private bool _isFoldShaderLibrary = true;
+        private bool _isFoldCustomHLSL = true;
         private bool _isFoldOther = true;
         //内置变量
         private bool _isFoldBuildInVariablesCameraAndScreen = true;
@@ -404,6 +405,10 @@ namespace yuxuetian
                     _ShaderLibrary.DrawTitleShaderLibrary();
                     _isFoldShaderLibrary = EditorGUILayout.Foldout(_isFoldShaderLibrary, "ShaderLibrary");
                     _ShaderLibrary.DrawContentShaderLibrary(_isFoldShaderLibrary);
+                    
+                    _ShaderLibrary.DrawTitleCustomHLSL();
+                    _isFoldCustomHLSL =  EditorGUILayout.Foldout(_isFoldCustomHLSL, "CustomHLSL");
+                    _ShaderLibrary.DrawContentCustomHLSL(_isFoldCustomHLSL);
                     
                     _ShaderLibrary.DrawTitleOther();
                     _isFoldOther = EditorGUILayout.Foldout(_isFoldOther, "Other");

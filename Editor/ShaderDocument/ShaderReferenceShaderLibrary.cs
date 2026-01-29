@@ -20,9 +20,27 @@ namespace yuxuetian
                                        "#include \"Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl\"\n" +
                                        "#include \"Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl\"\n" + 
                                        "#include \"Packages/com.unity.render-pipelines.core/ShaderLibrary/UnityInstancing.hlsl\"");
-                _reference.DrawContent("#include \"XXX.hlsl\"\n", "引入自定义的hlsl文件\n" +
-                                       "方案一：绝对路径，Asset/XX/xx.hlsl \n" +
-                                       "方案二：相对路径，同层级的话使用./xx.hlsl.     上一层级使用../xx.hlsl.       上层级的同级目录下使用../xx/xx.hlsl");
+            }
+        }
+
+        public void DrawTitleCustomHLSL()
+        {
+            _reference.DrawTitle("CustomHLSL");
+        }
+
+        public void DrawContentCustomHLSL(bool isFold)
+        {
+            if (isFold)
+            {
+                _reference.DrawContent("自定义HLSL文件\n" , "预定义名在hlsl文件内需要大写\n"+ 
+                                       "#ifndef MYHLSL_INCLUDED\n"+
+                                       "#define MYHLSL_INCLUDED\n\n"+
+                                       "具体函数算法封装内容....\n\n"+
+                                       "#endif");
+                
+                _reference.DrawContent("引用自定义的hlsl文件\n", "#include \"XXX.hlsl\"\n" +
+                                      "方案一：绝对路径，Asset/XX/xx.hlsl \n" +
+                                      "方案二：相对路径，同层级的话使用./xx.hlsl.     上一层级使用../xx.hlsl.       上层级的同级目录下使用../xx/xx.hlsl");
             }
         }
 
